@@ -48,10 +48,6 @@
 		.myButton:hover {
 			background-color:#e03228;
 		}
-		.myButton:active {
-			position:relative;
-			top:1;
-		}
 
 	</style>
 
@@ -110,7 +106,6 @@
 		window.onload = function() {
 			randomVideoLink();
 		}
-
 	</script>
 </head>
 
@@ -119,7 +114,7 @@
 		<iframe id = "embeded-video" src="" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div id="button" style="text-align: center;">
-			<button onclick="randomVideoLink()" class="myButton" id = "newButton">Another one!</button>
+			<button type="button" onclick="randomVideoLink();" class="myButton" id="newButton">Another one!</button>
 	</div>
 
 </body>
