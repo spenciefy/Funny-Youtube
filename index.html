@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<style type="text/css">
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: rgba(245, 245, 245, 1.0);;
+
+		}
+
+		iframe {
+			position: absolute;
+			align: center;
+			margin: auto;
+			   top: 0; right: 0; /* confuse it i guess */
+		    bottom: 0; left: 0;
+			min-width: 70%; min-height: 70%;
+			width: auto; height: auto; z-index: -100;
+		}
+
+		.myButton {
+			outline:0;
+			bottom:80px;
+			position:absolute;
+
+			-moz-box-shadow: 0px 2px 0px 0px #8a2a21;
+			-webkit-box-shadow: 0px 2px 0px 0px #8a2a21;
+			box-shadow: 0px 2px 0px 0px #8a2a21;
+			background-color:rgba(255, 83, 68, 1.0);
+			-moz-border-radius:27px;
+			-webkit-border-radius:27px;
+			border-radius:27px;
+			border:1px solid #d02718;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Trebuchet MS;
+			font-size:22px;
+			padding:13px 37px;
+			text-decoration:none;
+			text-shadow:0px 1px 0px #810e05;
+		}
+		.myButton:hover {
+			background-color:#e03228;
+		}
+		.myButton:active {
+			position:relative;
+			top:1;
+		}
+
+	</style>
+
+
+	<script type="text/javascript">
+		var videoArray = ["oiziGLe1jBw",
+						 "cWVEsCMX9YU", 
+						 "_oQAjtXz-Vc",
+						 "OMspkwGM0LE",
+						 "nda_OSWeyn8",
+						 "FbWeIDXnsrg?t=24s",
+						 "jvecCrSZYtM",
+						 "MdcuaeYV9oM",
+						 "N0gb9v4LI4o",
+						 "ctBU8km42zA",
+						 "t3NOYMzVC3s",
+						 "1Ej_Wv9LU1A",
+						 "7QLSRMoKKS0",
+						 "NRItYDKSqpQ",
+						 "6PKQE8FM2Uw",
+						 "TN8YQVM1GQI",
+						 "90XLNQXN_74",
+						 "jfVsu5MuyLQ",
+						 "og6WBW4kAyc",
+						 "09coHgAuJd0",
+						 "2WWwkArWajM"];
+						 // "",
+						 // "",
+						 // "",
+						 // "",
+						 // "",
+						 // "",];
+
+		 var buttonTitles = ["another one!!!",
+		 					"lmao one more",
+		 					"Can do better.",
+		 					"ha ha ha",
+		 					"that was stupid",
+		 					"waste more of my time",
+		 					"wtf??"];
+
+		var randomVideoLink = function () {
+			var randomIndex = Math.floor(Math.random() * videoArray.length);
+			var videoLink = "http://www.youtube.com/embed/" + videoArray[randomIndex] + "?rel=0&amp;autoplay=1&amp;controls=1&amp;showinfo=1";
+			document.getElementById("embeded-video").src = videoLink;
+
+			var randomNameIndex = Math.floor(Math.random() * buttonTitles.length);
+			document.getElementById("newButton").innerHTML = buttonTitles[randomNameIndex];
+
+			console.log(videoLink);
+		}
+		
+		window.onload = function() {
+			randomVideoLink();
+		}
+
+	</script>
+</head>
+
+<body>
+	<div id="video">
+		<iframe id = "embeded-video" src="" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<div id="button" style="text-align: center;">
+			<button onclick="randomVideoLink()" class="myButton" id = "newButton">Another one!</button>
+	</div>
+
+</body>
+
+</html>
