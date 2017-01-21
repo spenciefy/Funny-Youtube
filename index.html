@@ -101,6 +101,9 @@
 			var randomNameIndex = Math.floor(Math.random() * buttonTitles.length);
 			document.getElementById("newButton").innerHTML = buttonTitles[randomNameIndex];
 
+			var buttonWidth = document.getElementById("newButton").offsetWidth;
+			document.getElementById("newButton").style.marginLeft = "" + (-1 * buttonWidth/2) + "px";
+
 			console.log(videoLink);
 		}
 		
