@@ -55,8 +55,29 @@
   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var url = "https://www.reddit.com/r/DeepIntoYouTube/top/.json?count=20";
+		var lastVid = "";
 
-		var videoArray = ["oiziGLe1jBw"];
+		var videoArray = ["oiziGLe1jBw",
+						 "cWVEsCMX9YU", 
+						 "_oQAjtXz-Vc",
+						 "OMspkwGM0LE",
+						 "nda_OSWeyn8",
+						 "FbWeIDXnsrg?t=24s",
+						 "jvecCrSZYtM",
+						 "MdcuaeYV9oM",
+						 "N0gb9v4LI4o",
+						 "ctBU8km42zA",
+						 "t3NOYMzVC3s",
+						 "1Ej_Wv9LU1A",
+						 "7QLSRMoKKS0",
+						 "NRItYDKSqpQ",
+						 "6PKQE8FM2Uw",
+						 "TN8YQVM1GQI",
+						 "90XLNQXN_74",
+						 "jfVsu5MuyLQ",
+						 "og6WBW4kAyc",
+						 "09coHgAuJd0",
+						 "2WWwkArWajM"];
 						 // "",
 						 // "",
 						 // "",
@@ -73,9 +94,13 @@
 		 					"wtf??"];
 
 		var randomVideoLink = function () {
-			var randomIndex = Math.floor(Math.random() * videoArray.length);
-			var videoLink = "http://www.youtube.com/embed/" + videoArray[randomIndex] + "?rel=0&amp;autoplay=1&amp;controls=1&amp;showinfo=1";
-			document.getElementById("embeded-video").src = videoLink;
+			var videoLink = "";
+			do {
+				var randomIndex = Math.floor(Math.random() * videoArray.length);
+				videoLink = "http://www.youtube.com/embed/" + videoArray[randomIndex] + "?rel=0&amp;autoplay=1&amp;controls=1&amp;showinfo=1";
+				document.getElementById("embeded-video").src = videoLink;
+			} while ( lastVid == videoLink )
+			lastVid = videoLink;
 
 			var randomNameIndex = Math.floor(Math.random() * buttonTitles.length);
 			document.getElementById("newButton").innerHTML = buttonTitles[randomNameIndex];
