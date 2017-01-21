@@ -52,28 +52,11 @@
 	</style>
 
 
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		var videoArray = ["oiziGLe1jBw",
-						 "cWVEsCMX9YU", 
-						 "_oQAjtXz-Vc",
-						 "OMspkwGM0LE",
-						 "nda_OSWeyn8",
-						 "FbWeIDXnsrg?t=24s",
-						 "jvecCrSZYtM",
-						 "MdcuaeYV9oM",
-						 "N0gb9v4LI4o",
-						 "ctBU8km42zA",
-						 "t3NOYMzVC3s",
-						 "1Ej_Wv9LU1A",
-						 "7QLSRMoKKS0",
-						 "NRItYDKSqpQ",
-						 "6PKQE8FM2Uw",
-						 "TN8YQVM1GQI",
-						 "90XLNQXN_74",
-						 "jfVsu5MuyLQ",
-						 "og6WBW4kAyc",
-						 "09coHgAuJd0",
-						 "2WWwkArWajM"];
+		var url = "https://www.reddit.com/r/DeepIntoYouTube/top/.json?count=20";
+
+		var videoArray = ["oiziGLe1jBw"];
 						 // "",
 						 // "",
 						 // "",
@@ -100,10 +83,17 @@
 			var buttonWidth = document.getElementById("newButton").offsetWidth;
 			document.getElementById("newButton").style.marginLeft = "" + (-1 * buttonWidth/2) + "px";
 
-			console.log(videoLink);
+			//console.log(videoLink);
 		}
 		
 		window.onload = function() {
+			$.getJSON(url, function(data) {
+	      var list = data.data.children;
+	      $(list).each(function(){
+	      	var link = this.data.url;
+	        videoArray.push(link.substring(link.length-11,link.length));
+	      });
+	    });
 			randomVideoLink();
 		}
 	</script>
